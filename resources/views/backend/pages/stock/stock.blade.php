@@ -31,6 +31,17 @@
                 </tr>
                 @endforeach
             </table>
+            <button class="btn btn-info" onclick="window.print()"><i class="fa fa-print"></i></button>
         </div>
     </div><!-- br-pagebody -->
+    <style>
+        @media print {
+            .btn{
+                display:none;
+            }
+            .br-pagetitle{
+                display:none;
+            }
+        }
+    </style>
 @endsection

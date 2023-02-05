@@ -16,7 +16,7 @@
                 <i class="ion ion-earth tx-60 lh-0 tx-white op-7"></i>
                 <div class="mg-l-20">
                   <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Today's Visits</p>
-                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">1,975,224</p>
+                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{$totalProduct}}</p>
                   <span class="tx-11 tx-roboto tx-white-8">24% higher yesterday</span>
                 </div>
               </div>
@@ -28,8 +28,8 @@
               <div class="pd-x-20 pd-t-20 d-flex align-items-center">
                 <i class="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
                 <div class="mg-l-20">
-                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Today Sales</p>
-                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">$329,291</p>
+                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Total Branch</p>
+                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{$brace}}</p>
                   <span class="tx-11 tx-roboto tx-white-8">$390,212 before tax</span>
                 </div>
               </div>
@@ -41,8 +41,8 @@
               <div class="pd-x-20 pd-t-20 d-flex align-items-center">
                 <i class="ion ion-monitor tx-60 lh-0 tx-white op-7"></i>
                 <div class="mg-l-20">
-                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">% Unique Visits</p>
-                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">54.45%</p>
+                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Total Purchase</p>
+                  <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{$purchase}}</p>
                   <span class="tx-11 tx-roboto tx-white-8">23% average duration</span>
                 </div>
               </div>

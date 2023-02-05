@@ -234,3 +234,107 @@ jQuery(document).ready(function(){
     });
 });
 
+// ============--SAlE ADD ------======================
+// ============--SAlE ADD ------======================
+// ============--SAlE ADD ------======================
+jQuery (document).ready(function(){
+    jQuery(document).on("keyup",".sproduct_id",function(){
+        var _sproduct_id = jQuery(this).val();
+        $.ajax({
+            url:"/sale/find/"+_sproduct_id,
+            type:"GET",
+            dataType:"JSON",
+            success:function(response){
+               jQuery(".ssale_Price").val(response.data.sale_price);  
+            }
+
+        });
+    });
+    jQuery(document).on("keyup",".squantity",function(){
+        var _qnt = jQuery(this).val();
+        var _salePrice = jQuery(".ssale_Price").val();
+        var _price = (_qnt * _salePrice );
+        jQuery(".sQprice").val(_price);
+    });
+
+    jQuery(document).on("keyup",".sdis",function(){
+        var _dis_amaunt = jQuery(this).val();
+        var _total =  jQuery(".sQprice").val();
+        var  _dis_total = ((_dis_amaunt * _total)/100);
+        jQuery(".sdis_amount").val(_dis_total);
+        var Price_all = jQuery(".sQprice").val();
+        var _totals = (Price_all - _dis_total);
+        jQuery(".stotal_amount").val(_totals);
+    });
+     jQuery(document).on("click",".btn_saleadd",function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var date = jQuery(".sdate").val();
+        var br_id = jQuery(".sbr_id").val();
+        var invoice = jQuery(".sinvoice").val();
+        var product_id = jQuery(".sproduct_id").val();
+        var quantity = jQuery(".squantity").val();
+        var dis = jQuery(".sdis").val();
+        var dis_amount = jQuery(".sdis_amount").val();
+        var total_amount = jQuery(".stotal_amount").val();
+        $.ajax({
+            url:"/sale/store",
+            type:"POST",
+            dataType:"JSON",
+            data:{
+                date:date,
+                br_id:br_id,
+                invoice:invoice,
+                product_id:product_id,
+                quantity:quantity,
+                dis:dis,
+                dis_amount:dis_amount,
+                total_amount:total_amount,
+            },
+            success:function(response){
+               if (response.status=="success"){
+                salesshow();
+                jQuery(document).find('input').val('');
+                jQuery(document).find('select').val('');
+               }
+            }
+            
+        });
+      
+     });
+     salesshow();
+     function salesshow(){
+        $.ajax({
+            url:"/sale/salesshow/",
+            type:"GET",
+            dataType:"JSON",
+            success:function(response){
+                jQuery('.SalesData').html('');
+                $.each(response.data, function(key,item){
+                    jQuery('.SalesData').append('<tr>\
+                    <td>'+item.sdate+'</td>\
+                    <td>'+item.sproduct_id+'</td>\
+                    <td>'+item.squantity+'</td>\
+                    <td>'+item.sdis_amount+'</td>\
+                    <td>'+item.stotal_amount+'</td>\
+                    <td><button value="'+item.id+'" class="salesDelete btn btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>\
+                </tr>');
+                });
+            }
+        });
+     }
+     jQuery(document).on("click",".salesDelete",function(){
+        var id = jQuery(this).val();
+        $.ajax({
+            url:"/sale/destroy/"+id,
+            type:"GET",
+            dataType:"JSON",
+            success:function(response){
+                    salesshow();
+                }
+        });
+     });
+});

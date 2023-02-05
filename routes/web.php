@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\BranchController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\PurchaseController;
+use App\Http\Controllers\Backend\Dashboard;
+use App\Http\Controllers\Backend\SaleController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +24,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard',function(){
-  return view('backend.dashboard');
-})->name('dashboard');
+// Route::get('/dashboard',function(){
+//   return view('backend.dashboard');
+// })->name('dashboard');
+Route::GET('/admin',[Dashboard::class,'dashboard'])->name('dashboard');
+
 
 Route::get('/blankpage',function(){
   return view('backend.masterTemplate.blank');
@@ -54,4 +60,14 @@ Route::group(['prefix'=>'/purchase'],function(){
   Route::POST('/update/{id}',[PurchaseController::class,'update']);
   Route::GET('/deleteid/{id}',[PurchaseController::class,'deleteproduct']);
   Route::GET('/stock',[PurchaseController::class,'stock'])->name('stock');
+}); 
+Route::group(['prefix'=>'/sale'],function(){
+  Route::get('/add',[SaleController::class,'add'])->name('saleadd');
+  Route::POST('/store',[SaleController::class,'store']);
+  Route::get('/show',[SaleController::class,'show']);
+  Route::GET('/edit/{id}',[SaleController::class,'edit']);
+  Route::GET('/find/{id}',[SaleController::class,'find']);
+  Route::POST('/update/{id}',[SaleController::class,'update']);
+  Route::GET('/destroy/{id}',[SaleController::class,'destroy'])->name("destroy");
+  Route::GET('/salesshow',[SaleController::class,'salesshow']);
 }); 

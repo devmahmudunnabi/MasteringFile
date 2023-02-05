@@ -142,12 +142,12 @@
           <div class="dropdown">
             <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
               <span class="logged-name hidden-md-down">Katherine</span>
-              <img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
+              <img src="{{asset('backend/img/01611779651.jpg')}}" class="wd-32 rounded-circle" alt="img">
               <span class="square-10 bg-success"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-header wd-250">
               <div class="tx-center">
-                <a href=""><img src="https://via.placeholder.com/500" class="wd-80 rounded-circle" alt=""></a>
+                <a href=""><img src="{{asset('backend/img/01611779651.jpg')}}" class="wd-80 rounded-circle" alt="img"></a>
                 <h6 class="logged-fullname">Katherine P. Lumaad</h6>
                 <p>youremail@domain.com</p>
               </div>
