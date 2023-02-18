@@ -71,7 +71,7 @@
             </div>
             <!-- TABILE End -->
             <div class="col-md-2 mt-4 pt-3">
-               <button class="btn btn-success form-control" onclick="window.print()">Print <i class="fa fa-print"></i></button>
+               <button  class="btn btn-success form-control btn-print">Print <i class="fa fa-print"></i></button>
             </div>
           </div>
       </div><!-- br-pagebody -->

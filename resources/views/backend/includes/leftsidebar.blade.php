@@ -68,7 +68,7 @@
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
             <li class="sub-item"><a href="{{Route('saleadd')}}" class="sub-link"> Add Sale</a></li>
-            <!-- <li class="sub-item"><a href="card-social.html" class="sub-link">Manage product</a></li> -->
+            <li class="sub-item"><a href="" class="sub-link">print</a></li>
           </ul>
         </li>
       </ul><!-- br-sideleft-menu -->

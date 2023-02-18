@@ -70,4 +70,5 @@ Route::group(['prefix'=>'/sale'],function(){
   Route::POST('/update/{id}',[SaleController::class,'update']);
   Route::GET('/destroy/{id}',[SaleController::class,'destroy'])->name("destroy");
   Route::GET('/salesshow',[SaleController::class,'salesshow']);
+  Route::GET('/print/{id}',[SaleController::class,'print'])->name("print");
 }); 

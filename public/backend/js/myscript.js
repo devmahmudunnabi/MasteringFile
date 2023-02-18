@@ -337,4 +337,9 @@ jQuery (document).ready(function(){
                 }
         });
      });
+     
+     jQuery(document).on("click",".btn-print",function(){
+        var invoice = jQuery(".sinvoice").val();
+         window.location("{{Route('print','invoice')}}");
+     });
 });

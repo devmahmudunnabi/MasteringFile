@@ -44,14 +44,15 @@ class SaleController extends Controller
             'data'=>$product
         ]);
     }
-    public function update(){
-        
-    }
     public function destroy($id){
         $sales=sale::find($id);
         $sales->delete();
         return response()->Json([
             'status'=>"success"
         ]);
+    }
+    
+    public function print($id){
+        return view("backend.pages.sale.print");
     }
 }
